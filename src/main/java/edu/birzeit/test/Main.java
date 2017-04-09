@@ -18,6 +18,7 @@ import org.jhotdraw.util.*;
  * @author Werner Randelshofer
  * @version $Id: DnDMultiEditorSample.java 785 2013-12-01 19:16:30Z rawcoder $
  */
+@Deprecated
 public class Main {
 
 	public static void main(String[] args) {
