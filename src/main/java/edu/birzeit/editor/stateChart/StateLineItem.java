@@ -46,7 +46,7 @@ public class StateLineItem extends StateChartStepItem{
 	public Figure getShapeRepresentation() {
 		//Auto-generated method stub
 
-		Icon flowImageIcon = new ImageIcon(getClass().getResource("flowLine.png"));
+		Icon flowImageIcon = new ImageIcon(getClass().getResource("/edu/birzeit/statechart/flowLine.png"));
         BufferedImage bufferedImg = new BufferedImage(flowImageIcon.getIconWidth(), flowImageIcon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = bufferedImg.createGraphics();
         flowImageIcon.paintIcon(null, g, 0, 0);

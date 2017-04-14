@@ -20,16 +20,12 @@ import org.jhotdraw.draw.DefaultDrawingEditor;
 import org.jhotdraw.draw.DiamondFigure;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.EllipseFigure;
-import org.jhotdraw.draw.GraphicalCompositeFigure;
-import org.jhotdraw.draw.GroupFigure;
 import org.jhotdraw.draw.LineFigure;
 import org.jhotdraw.draw.RectangleFigure;
 import org.jhotdraw.draw.RoundRectangleFigure;
 import org.jhotdraw.draw.TriangleFigure;
 import org.jhotdraw.draw.action.ButtonFactory;
 import org.jhotdraw.draw.decoration.ArrowTip;
-import org.jhotdraw.draw.layouter.HorizontalLayouter;
-import org.jhotdraw.draw.layouter.Layouter;
 import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
 import org.jhotdraw.samples.draw.DrawView;
@@ -38,6 +34,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 import com.sun.istack.internal.Nullable;
 
 import edu.birzeit.editor.composite.CompositeRectangleClient;
+import edu.birzeit.editor.figure.StateChartFigure;
 
 /**
  * @author arouri
@@ -147,6 +144,10 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		ButtonFactory.addToolTo(tb, editor, new CreationTool(new StateChartFigure()),
+				"edit.createComposite", mylabels);
+		
 	}
 
 	@Override
