@@ -11,12 +11,15 @@ import org.jhotdraw.draw.RectangleFigure;
 /**
  * @author AnjadBad6:21:48 PM
  *
+ *
  */
 public class DefaultFigureFactory implements FigureFactory {
 	
 	@Override
 	public Figure getFigure(FigureType type) {
 		try {
+			
+			
 			return (Figure) type.getFigureClass().newInstance();
 		} catch (Exception e2) {
 			System.err
