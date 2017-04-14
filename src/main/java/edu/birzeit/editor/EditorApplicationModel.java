@@ -20,18 +20,24 @@ import org.jhotdraw.draw.DefaultDrawingEditor;
 import org.jhotdraw.draw.DiamondFigure;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.EllipseFigure;
+import org.jhotdraw.draw.GraphicalCompositeFigure;
+import org.jhotdraw.draw.GroupFigure;
 import org.jhotdraw.draw.LineFigure;
 import org.jhotdraw.draw.RectangleFigure;
 import org.jhotdraw.draw.RoundRectangleFigure;
 import org.jhotdraw.draw.TriangleFigure;
 import org.jhotdraw.draw.action.ButtonFactory;
 import org.jhotdraw.draw.decoration.ArrowTip;
+import org.jhotdraw.draw.layouter.HorizontalLayouter;
+import org.jhotdraw.draw.layouter.Layouter;
 import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
 import org.jhotdraw.samples.draw.DrawView;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 import com.sun.istack.internal.Nullable;
+
+import edu.birzeit.editor.composite.CompositeRectangleClient;
 
 /**
  * @author arouri
@@ -42,7 +48,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	private static final long serialVersionUID = 7461858465774614624L;
 
 	private DefaultDrawingEditor sharedEditor;
-	
+
 	@Nullable
 	private MenuBuilder menuBuilder;
 
@@ -83,10 +89,10 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 		// Add creation buttons to the tool bar
 		addCreationButtonsTo(tb, editor);
 		tb.setName(labels.getString("window.drawToolBar.title"));
-		
+
 		LinkedList<JToolBar> list = new LinkedList<JToolBar>();
 		list.add(tb);
-		
+
 		return list;
 	}
 
@@ -101,8 +107,9 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	}
 
 	/**
-	 * Add creation buttons of the figures to the tool bar 
-	 * TODO:// We need to add our custom figures here
+	 * Add creation buttons of the figures to the tool bar TODO:// We need to
+	 * add our custom figures here
+	 * 
 	 * @param tb
 	 * @param editor
 	 * @param drawingActions
@@ -126,14 +133,25 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 		CreationTool ct = new CreationTool(new LineFigure());
 		ButtonFactory.addToolTo(tb, editor, ct, "edit.createArrow", labels);
-
+		
 		AbstractAttributedFigure af = (AbstractAttributedFigure) ct.getPrototype();
 		af.set(END_DECORATION, new ArrowTip(0.35, 12, 11.3));
+		
+		ResourceBundleUtil mylabels = ResourceBundleUtil.getBundle("settings");
+		ResourceBundleUtil.setVerbose(true);
+		
+		try {
+			CompositeRectangleClient compositeRectangleClient = new CompositeRectangleClient();
+			ButtonFactory.addToolTo(tb, editor, new CreationTool(compositeRectangleClient.getContainer()),
+					"edit.createComposite", mylabels);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public URIChooser createOpenChooser(Application a, @Nullable View v) {
-		
+
 		return null;
 	}
 
