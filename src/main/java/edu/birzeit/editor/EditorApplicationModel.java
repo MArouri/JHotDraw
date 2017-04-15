@@ -28,10 +28,7 @@ import org.jhotdraw.draw.action.ButtonFactory;
 import org.jhotdraw.draw.decoration.ArrowTip;
 import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
-import org.jhotdraw.samples.draw.DrawView;
 import org.jhotdraw.util.ResourceBundleUtil;
-
-
 
 import edu.birzeit.editor.composite.CompositeRectangleClient;
 import edu.birzeit.editor.figure.StateChartFigure;
@@ -52,7 +49,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	public EditorApplicationModel() {
 
 	}
-
+	
 	public DefaultDrawingEditor getSharedEditor() {
 
 		if (sharedEditor == null) {
@@ -97,7 +94,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 		return list;
 	}
-
+	
 	/**
 	 * @param tb
 	 * @param editor
@@ -154,6 +151,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 				"edit.createComposite", mylabels);
 		
 	}
+	
 
 	@Override
 	public URIChooser createOpenChooser(Application a,  View v) {
