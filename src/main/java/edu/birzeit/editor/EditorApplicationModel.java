@@ -28,13 +28,9 @@ import org.jhotdraw.draw.action.ButtonFactory;
 import org.jhotdraw.draw.decoration.ArrowTip;
 import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
-import org.jhotdraw.samples.draw.DrawView;
 import org.jhotdraw.util.ResourceBundleUtil;
 
-import com.sun.istack.internal.Nullable;
-
-import edu.birzeit.editor.composite.CompositeRectangleClient;
-import edu.birzeit.editor.figure.StateChartFigure;
+import com.birzeit.editor.facade.EditorFigureMaker;
 
 /**
  * @author arouri
@@ -46,13 +42,13 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 	private DefaultDrawingEditor sharedEditor;
 
-	@Nullable
+	
 	private MenuBuilder menuBuilder;
 
 	public EditorApplicationModel() {
 
 	}
-
+	
 	public DefaultDrawingEditor getSharedEditor() {
 
 		if (sharedEditor == null) {
@@ -70,7 +66,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	}
 
 	@Override
-	public List<JToolBar> createToolBars(Application a, @Nullable View pr) {
+	public List<JToolBar> createToolBars(Application a,  View pr) {
 
 		ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
 		//DrawView p = (DrawView) pr;
@@ -97,7 +93,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 		return list;
 	}
-
+	
 	/**
 	 * @param tb
 	 * @param editor
@@ -142,33 +138,35 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 		ResourceBundleUtil mylabels = ResourceBundleUtil.getBundle("settings");
 		ResourceBundleUtil.setVerbose(true);
 		
+		EditorFigureMaker maker = new EditorFigureMaker();
+		
 		try {
-			CompositeRectangleClient compositeRectangleClient = new CompositeRectangleClient();
-			ButtonFactory.addToolTo(tb, editor, new CreationTool(compositeRectangleClient.getContainer()),
+			ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getCompositeFigure()),
 					"edit.createComposite", mylabels);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		ButtonFactory.addToolTo(tb, editor, new CreationTool(new StateChartFigure()),
+		ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getStateChartFigure()),
 				"edit.createComposite", mylabels);
 		
 	}
+	
 
 	@Override
-	public URIChooser createOpenChooser(Application a, @Nullable View v) {
+	public URIChooser createOpenChooser(Application a,  View v) {
 
 		return null;
 	}
 
 	@Override
-	public URIChooser createSaveChooser(Application a, @Nullable View v) {
+	public URIChooser createSaveChooser(Application a,  View v) {
 
 		return null;
 	}
 
 	@Override
-	public ActionMap createActionMap(Application a, @Nullable View v) {
+	public ActionMap createActionMap(Application a,  View v) {
 
 		ActionMap m = new ActionMap();
 		return m;
