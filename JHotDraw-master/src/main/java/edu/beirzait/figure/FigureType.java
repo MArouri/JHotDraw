@@ -25,6 +25,8 @@ public enum FigureType {
 	 * Default jhotdraw framework ResourceBundleutil
 	 */
 	private static ResourceBundleUtil jhotdrawLabels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
+	
+	//committed 
 
 	/**
 	 * Design patterns demo custom resource bundle.
