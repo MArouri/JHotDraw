@@ -73,18 +73,23 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	public List<JToolBar> createToolBars(Application a, @Nullable View pr) {
 
 		ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
-		DrawView p = (DrawView) pr;
+		//DrawView p = (DrawView) pr;
 
-		DrawingEditor editor;
-		if (p == null) {
-			editor = getSharedEditor();
-		} else {
-			editor = p.getEditor();
+//		DrawingEditor editor;
+//		if (p == null) {
+//			editor = getSharedEditor();
+//		} else {
+//			editor = p.getEditor();
+//		}
+		
+		System.out.println(sharedEditor);
+		if (sharedEditor == null) {
+			sharedEditor = new DefaultDrawingEditor();
 		}
 
 		JToolBar tb = new JToolBar();
 		// Add creation buttons to the tool bar
-		addCreationButtonsTo(tb, editor);
+		addCreationButtonsTo(tb, sharedEditor);
 		tb.setName(labels.getString("window.drawToolBar.title"));
 
 		LinkedList<JToolBar> list = new LinkedList<JToolBar>();
