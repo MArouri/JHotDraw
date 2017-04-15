@@ -36,7 +36,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
  *
  */
 public class EditorDrawView extends AbstractView {
-
+ 
 	private static final long serialVersionUID = -1720741840941179742L;
 
 	private DefaultDrawingView view;

@@ -21,6 +21,7 @@ public class Main {
 		if (os.startsWith(MAC)) {
 			app = new OSXApplication();
 		} else {
+			
 			app = new SDIApplication();
 		}
 

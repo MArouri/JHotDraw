@@ -31,7 +31,7 @@ import org.jhotdraw.gui.URIChooser;
 import org.jhotdraw.samples.draw.DrawView;
 import org.jhotdraw.util.ResourceBundleUtil;
 
-import com.sun.istack.internal.Nullable;
+
 
 import edu.birzeit.editor.composite.CompositeRectangleClient;
 import edu.birzeit.editor.figure.StateChartFigure;
@@ -46,7 +46,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 	private DefaultDrawingEditor sharedEditor;
 
-	@Nullable
+	
 	private MenuBuilder menuBuilder;
 
 	public EditorApplicationModel() {
@@ -70,21 +70,26 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	}
 
 	@Override
-	public List<JToolBar> createToolBars(Application a, @Nullable View pr) {
+	public List<JToolBar> createToolBars(Application a,  View pr) {
 
 		ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
-		DrawView p = (DrawView) pr;
+		//DrawView p = (DrawView) pr;
 
-		DrawingEditor editor;
-		if (p == null) {
-			editor = getSharedEditor();
-		} else {
-			editor = p.getEditor();
+//		DrawingEditor editor;
+//		if (p == null) {
+//			editor = getSharedEditor();
+//		} else {
+//			editor = p.getEditor();
+//		}
+		
+		System.out.println(sharedEditor);
+		if (sharedEditor == null) {
+			sharedEditor = new DefaultDrawingEditor();
 		}
 
 		JToolBar tb = new JToolBar();
 		// Add creation buttons to the tool bar
-		addCreationButtonsTo(tb, editor);
+		addCreationButtonsTo(tb, sharedEditor);
 		tb.setName(labels.getString("window.drawToolBar.title"));
 
 		LinkedList<JToolBar> list = new LinkedList<JToolBar>();
@@ -151,19 +156,19 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	}
 
 	@Override
-	public URIChooser createOpenChooser(Application a, @Nullable View v) {
+	public URIChooser createOpenChooser(Application a,  View v) {
 
 		return null;
 	}
 
 	@Override
-	public URIChooser createSaveChooser(Application a, @Nullable View v) {
+	public URIChooser createSaveChooser(Application a,  View v) {
 
 		return null;
 	}
 
 	@Override
-	public ActionMap createActionMap(Application a, @Nullable View v) {
+	public ActionMap createActionMap(Application a,  View v) {
 
 		ActionMap m = new ActionMap();
 		return m;
