@@ -14,6 +14,11 @@ import org.jhotdraw.draw.Figure;
  * @author Rawan Khader
  *
  */
+
+/**
+ * FiguresAreaHeightSort class is a ConcreteStrategy 
+ * each concrete strategy implements an algorithm.
+ */
 public class FiguresAreaHeightSort implements SortFigures{
 
 	/**

@@ -14,6 +14,11 @@ import org.jhotdraw.draw.TextFigure;
  * @author Rawan Khader
  *
  */
+
+/**
+ * StateChartStepItem is an abstract class, and this class is a strategy 
+ * that defines an interface common to all supported algorithms
+ */
 public abstract class StateChartStepItem {
 
 	private GraphicalCompositeFigure graphicalCompositeFigure;

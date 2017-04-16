@@ -14,6 +14,11 @@ import org.jhotdraw.draw.Figure;
  * @author Rawan Khader
  *
  */
+
+/**
+ * FiguresNameSort class is a ConcreteStrategy 
+ * each concrete strategy implements an algorithm.
+ */
 public class FiguresNameSort implements SortFigures {
 
 	/**
@@ -45,7 +50,6 @@ public class FiguresNameSort implements SortFigures {
 		Collections.sort(figureSorting, sortByFiguresName);
 	}
 
-	
 }
 
 

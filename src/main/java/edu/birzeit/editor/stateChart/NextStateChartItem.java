@@ -12,6 +12,10 @@ import org.jhotdraw.draw.Figure;
  * @author Rawan Khader
  *
  */
+
+/**
+ * NextStateChartItem is a concrete strategy 
+ */
 public class NextStateChartItem extends StateChartStepItem{
 
 	/**

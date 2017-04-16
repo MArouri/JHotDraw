@@ -21,6 +21,10 @@ import org.jhotdraw.geom.Insets2D;
  * @author Rawan Khader
  *
  */
+
+/**
+ * StateLineItem is a concrete strategy 
+ */
 public class StateLineItem extends StateChartStepItem{
 
 	/**

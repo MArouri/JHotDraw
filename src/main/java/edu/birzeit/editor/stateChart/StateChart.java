@@ -12,6 +12,10 @@ import org.jhotdraw.draw.Figure;
  * @author Rawan Khader
  *
  */
+
+/**
+ * StateChart is a concrete strategy 
+ */
 public class StateChart extends StateChartStepItem {
 
 	/**

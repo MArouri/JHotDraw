@@ -15,6 +15,12 @@ import edu.birzeit.editor.stateChart.StateLineItem;
  * @author Rawan Khader
  *
  */
+
+/**
+ * StateChartFigure class is the context.
+ * The Context "StateChartFigure" used to see the changes in behavior when it
+ *  changes its Strategy "StateChartStepItem".
+ */
 public class StateChartFigure extends ListFigure{
 
 	private StateChart drawStateChart;
@@ -31,7 +37,6 @@ public class StateChartFigure extends ListFigure{
 		//Auto-generated constructor stub
 		drawStateChart = new StateChart();
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("Start State"));
-		drawStateChart.addStepItem(nextItem = new NextStateChartItem("next"));
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("next"));
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("End State"));
 		
