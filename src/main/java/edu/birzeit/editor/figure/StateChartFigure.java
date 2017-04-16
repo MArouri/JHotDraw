@@ -30,6 +30,7 @@ public class StateChartFigure extends ListFigure{
 	public StateChartFigure() {
 		//Auto-generated constructor stub
 		drawStateChart = new StateChart();
+		drawStateChart.addStepItem(nextItem = new NextStateChartItem("Start State"));
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("next"));
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("next"));
 		drawStateChart.addStepItem(nextItem = new NextStateChartItem("End State"));
