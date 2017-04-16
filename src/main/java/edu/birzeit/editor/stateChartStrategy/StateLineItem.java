@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.birzeit.editor.stateChart;
+package edu.birzeit.editor.stateChartStrategy;
 
 import static org.jhotdraw.draw.AttributeKeys.STROKE_COLOR;
 import java.awt.Graphics2D;

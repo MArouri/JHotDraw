@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.birzeit.editor.stateChart;
+package edu.birzeit.editor.stateChartStrategy;
 
 import java.awt.geom.AffineTransform;
 import java.util.List;

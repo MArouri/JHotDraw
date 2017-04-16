@@ -6,10 +6,10 @@ package edu.birzeit.editor.figure;
 import org.jhotdraw.draw.ListFigure;
 import org.jhotdraw.draw.layouter.VerticalLayouter;
 
-import edu.birzeit.editor.stateChart.NextStateChartItem;
-import edu.birzeit.editor.stateChart.StateChart;
-import edu.birzeit.editor.stateChart.StateChartStepItem;
-import edu.birzeit.editor.stateChart.StateLineItem;
+import edu.birzeit.editor.stateChartStrategy.NextStateChartItem;
+import edu.birzeit.editor.stateChartStrategy.StateChart;
+import edu.birzeit.editor.stateChartStrategy.StateChartStepItem;
+import edu.birzeit.editor.stateChartStrategy.StateLineItem;
 
 /**
  * @author Rawan Khader

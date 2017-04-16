@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.birzeit.editor.stateChart;
+package edu.birzeit.editor.stateChartStrategy;
 
 import java.util.LinkedList;
 import java.util.List;
