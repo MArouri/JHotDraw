@@ -23,6 +23,7 @@ import edu.birzeit.editor.stateChartStrategy.StateLineItem;
  */
 public class StateChartFigure extends ListFigure{
 
+	private StateChartStepItem stateChartStepItem;
 	private StateChart drawStateChart;
 	private NextStateChartItem nextItem;
 	/**
