@@ -1,7 +1,5 @@
 package edu.birzeit.editor;
 
-import static org.jhotdraw.draw.AttributeKeys.END_DECORATION;
-
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,22 +13,22 @@ import org.jhotdraw.app.Application;
 import org.jhotdraw.app.EmptyMenuBuilder;
 import org.jhotdraw.app.MenuBuilder;
 import org.jhotdraw.app.View;
-import org.jhotdraw.draw.AbstractAttributedFigure;
 import org.jhotdraw.draw.DefaultDrawingEditor;
 import org.jhotdraw.draw.DiamondFigure;
 import org.jhotdraw.draw.DrawingEditor;
-import org.jhotdraw.draw.EllipseFigure;
+import org.jhotdraw.draw.Figure;
 import org.jhotdraw.draw.LineFigure;
 import org.jhotdraw.draw.RectangleFigure;
 import org.jhotdraw.draw.RoundRectangleFigure;
 import org.jhotdraw.draw.TriangleFigure;
 import org.jhotdraw.draw.action.ButtonFactory;
-import org.jhotdraw.draw.decoration.ArrowTip;
 import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 import edu.birzeit.editor.facade.EditorFigureMaker;
+import edu.birzeit.editor.shapeFactory.ChartFactory;
+import edu.birzeit.editor.shapeFactory.StateChartFactory;
 
 /**
  * @author arouri
@@ -42,13 +40,12 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 	private DefaultDrawingEditor sharedEditor;
 
-	
 	private MenuBuilder menuBuilder;
 
 	public EditorApplicationModel() {
 
 	}
-	
+
 	public DefaultDrawingEditor getSharedEditor() {
 
 		if (sharedEditor == null) {
@@ -66,18 +63,18 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 	}
 
 	@Override
-	public List<JToolBar> createToolBars(Application a,  View pr) {
+	public List<JToolBar> createToolBars(Application a, View pr) {
 
 		ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
-		//DrawView p = (DrawView) pr;
+		// DrawView p = (DrawView) pr;
 
-//		DrawingEditor editor;
-//		if (p == null) {
-//			editor = getSharedEditor();
-//		} else {
-//			editor = p.getEditor();
-//		}
-		
+		// DrawingEditor editor;
+		// if (p == null) {
+		// editor = getSharedEditor();
+		// } else {
+		// editor = p.getEditor();
+		// }
+
 		System.out.println(sharedEditor);
 		if (sharedEditor == null) {
 			sharedEditor = new DefaultDrawingEditor();
@@ -93,7 +90,7 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 
 		return list;
 	}
-	
+
 	/**
 	 * @param tb
 	 * @param editor
@@ -124,49 +121,51 @@ public class EditorApplicationModel extends AbstractApplicationModel {
 		ButtonFactory.addToolTo(tb, editor, new CreationTool(new RectangleFigure()), "edit.createRectangle", labels);
 		ButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure()), "edit.createRoundRectangle",
 				labels);
-		ButtonFactory.addToolTo(tb, editor, new CreationTool(new EllipseFigure()), "edit.createEllipse", labels);
+
+		// Factory usage
+		ChartFactory factory = new StateChartFactory();
+		Figure ellipse = factory.getEllipse();
+		Figure line = factory.getLine();
+
+		ButtonFactory.addToolTo(tb, editor, new CreationTool(ellipse), "edit.createEllipse", labels);
 		ButtonFactory.addToolTo(tb, editor, new CreationTool(new DiamondFigure()), "edit.createDiamond", labels);
 		ButtonFactory.addToolTo(tb, editor, new CreationTool(new TriangleFigure()), "edit.createTriangle", labels);
 		ButtonFactory.addToolTo(tb, editor, new CreationTool(new LineFigure()), "edit.createLine", labels);
 
-		CreationTool ct = new CreationTool(new LineFigure());
-		ButtonFactory.addToolTo(tb, editor, ct, "edit.createArrow", labels);
-		
-		AbstractAttributedFigure af = (AbstractAttributedFigure) ct.getPrototype();
-		af.set(END_DECORATION, new ArrowTip(0.35, 12, 11.3));
-		
+		ButtonFactory.addToolTo(tb, editor, new CreationTool(line), "edit.createArrow", labels);
+
 		ResourceBundleUtil mylabels = ResourceBundleUtil.getBundle("settings");
 		ResourceBundleUtil.setVerbose(true);
-		
+
+		// Facade usage
 		EditorFigureMaker maker = new EditorFigureMaker();
-		
+
 		try {
-			ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getCompositeFigure()),
-					"edit.createComposite", mylabels);
+			ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getCompositeFigure()), "edit.createComposite",
+					mylabels);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getStateChartFigure()),
-				"edit.createComposite", mylabels);
-		
+
+		ButtonFactory.addToolTo(tb, editor, new CreationTool(maker.getStateChartFigure()), "edit.createComposite",
+				mylabels);
+
 	}
-	
 
 	@Override
-	public URIChooser createOpenChooser(Application a,  View v) {
+	public URIChooser createOpenChooser(Application a, View v) {
 
 		return null;
 	}
 
 	@Override
-	public URIChooser createSaveChooser(Application a,  View v) {
+	public URIChooser createSaveChooser(Application a, View v) {
 
 		return null;
 	}
 
 	@Override
-	public ActionMap createActionMap(Application a,  View v) {
+	public ActionMap createActionMap(Application a, View v) {
 
 		ActionMap m = new ActionMap();
 		return m;
