@@ -22,11 +22,6 @@ public class BasicRectangle extends RectangleComponent{
 	}
 
 	@Override
-	public void addComponent(RectangleComponent component) {
-		throw new UnsupportedOperationException("not supported");
-	}
-	
-	@Override
 	public Figure getFigure() {
 		return this.rectangleFigure;
 	}

@@ -10,8 +10,6 @@ import org.jhotdraw.app.SDIApplication;
  */
 public class Main {
 
-	//java.lang.ClassCastException: edu.birzeit.editor.EditorDrawView cannot be cast to org.jhotdraw.samples.draw.DrawView
-	
 	private static final String MAC = "mac";
 	private static final String OS_NAME = "os.name";
 

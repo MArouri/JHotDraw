@@ -22,8 +22,11 @@ public class CompositeRectangleClient {
 
 	public GraphicalCompositeFigure getContainer() throws Exception {
 		
-		this.container.add(new BasicRectangle(0,0,50,50).getFigure());
-		this.container.add(new BasicRectangle(0,0,50,50).getFigure());
+		BasicRectangle firstRectangle = new BasicRectangle(0,0,50,50);
+		this.container.add(firstRectangle.getFigure());
+		
+		BasicRectangle secondRectangle = new BasicRectangle(0,0,50,50);
+		this.container.add(secondRectangle.getFigure());
 		
 		RectangleComponent firstComponent = new RectangleGroup();
 		firstComponent.addComponent(new BasicRectangle(0,0,50,50));
