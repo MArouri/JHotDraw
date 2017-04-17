@@ -11,7 +11,7 @@ import org.jhotdraw.draw.Figure;
  * @author AnjadBad4:29:52 PM
  *
  */
-public interface FigureFactory {
+public interface FigureFactoryMethode {
 	
 	
 	/**
@@ -20,7 +20,7 @@ public interface FigureFactory {
 	 * @return
 	 */
 	
-	String getClassName(FigureType type);
+	String getClassName(FigureProductsType type);
 
 	/**
 	 * @return

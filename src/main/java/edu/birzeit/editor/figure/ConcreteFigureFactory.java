@@ -7,7 +7,7 @@ package edu.birzeit.editor.figure;
  * @author AnjadBad10:20:09 PM
  *
  */
-public class DefaultFigureFactory implements FigureFactory {
+public class ConcreteFigureFactory implements FigureFactoryMethode {
 	
 	 
 	
@@ -16,7 +16,7 @@ public class DefaultFigureFactory implements FigureFactory {
 	 	 * @seem org.simpleeditor.figure.FigureFactory#getFigure(org.simpleeditor.figure.FigureType)
 	 	 */
 	 	@Override
-	 	public String getClassName(FigureType type) {
+	 	public String getClassName(FigureProductsType type) {
 	 		try {
 	 			return (String) type.getClassName().newInstance();
 	 		} catch (Exception e2) {

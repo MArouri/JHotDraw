@@ -7,7 +7,7 @@ package edu.birzeit.editor.figure;
  * @author AnjadBad9:12:37 PM
  *
  */
-public enum FigureType {
+public enum FigureProductsType {
 	 
 	 STATE_CHART_DIAGRAM(StateChartFigure.class);
 	 
@@ -23,7 +23,7 @@ public enum FigureType {
 	  * 
 	  */
 	 @SuppressWarnings("rawtypes")
-	 private FigureType(Class className) {
+	 private FigureProductsType(Class className) {
 	  this.className = className;
 	 }
 	 
