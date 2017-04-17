@@ -1,4 +1,4 @@
-package com.birzeit.editor.facade;
+package edu.birzeit.editor.facade;
 
 import org.jhotdraw.draw.Figure;
 

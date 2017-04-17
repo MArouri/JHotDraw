@@ -30,7 +30,7 @@ import org.jhotdraw.draw.tool.CreationTool;
 import org.jhotdraw.gui.URIChooser;
 import org.jhotdraw.util.ResourceBundleUtil;
 
-import com.birzeit.editor.facade.EditorFigureMaker;
+import edu.birzeit.editor.facade.EditorFigureMaker;
 
 /**
  * @author arouri
