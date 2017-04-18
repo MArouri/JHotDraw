@@ -11,6 +11,12 @@ jar {
                    'Main-Class' : 'edu.birzeit.editor.Main'
                    
     }
+ 	from {
+        (configurations.runtime).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+     archiveName 'editor.jar'
 }
 
 repositories {
